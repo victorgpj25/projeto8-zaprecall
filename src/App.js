@@ -1,25 +1,23 @@
 import React from 'react'
 
-import logo from './img/logo.png'
+import Menu from './Menu.js'
+import Recall from './Recall.js'
 
 
 export default function App () {
 
-    const [welcomeClass, setWelcomeClass] = React.useState("welcome")
+    const [menuClass, setMenuClass] = React.useState("menu")
     const [recallClass, setRecallClass] = React.useState("hidden")
 
     function startRecall () {
-        setWelcomeClass("welcome hidden")
+        setMenuClass("hidden")
         setRecallClass("recall")
     }
 
     return (
         <>
-            <div className={welcomeClass}>
-                <img src={logo} alt="Logo ZapRecall" />
-                <h1>ZapRecall</h1>
-                <div className="startButton" onClick={startRecall}>Iniciar Recall!</div>
-            </div>
+            <Menu menuClass={menuClass} startRecall={startRecall} />
+            <Recall recallClass={recallClass} />
         </>
 
     )
